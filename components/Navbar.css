@@ -1,4 +1,4 @@
-.navbar img {
+.logo {
   width: 50px;
 }
 
@@ -7,6 +7,20 @@
 }
 
 
-.nav-item{
+/* .nav-item{
   padding-left: 10%;
+} */
+#github {
+  position: absolute;
+  right: 20px;
+  padding: 8px 0;
+}
+#github-logo,#youtube-logo {
+  width: 30px;
+}
+
+#youtube {
+  position: absolute;
+  right: 70px;
+  padding: 8px 0;
 }

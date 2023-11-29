@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar'
 import Home from '../pages/Home'
 import ErrorPage from "../pages/ErrorPage";
 import About from "../pages/About"
+import Blog from '../pages/Blog'
 
 import {
   createBrowserRouter,
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
     errorElement: <ErrorPage />
   },
 ]);
