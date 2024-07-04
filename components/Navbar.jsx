@@ -25,10 +25,10 @@ export default function Navbar() {
                 <a href="/blog" className="nav-link">Blog</a>
               </li>
               <li className="nav-item" id="youtube">
-                <a href="https://www.youtube.com/@AlanCS-ub9id" target="_blank"><img id="youtube-logo" src="../images/youtube.png"/></a>
+                <a href="https://www.youtube.com/@AlanCS-ub9id" target="_blank"><img id="youtube-logo" src="images/youtube.png"/></a>
               </li>
               <li className="nav-item" id="github">
-                <a href="https://github.com/alantao5056" target="_blank"><img id="github-logo" src="../images/github.png"/></a>
+                <a href="https://github.com/alantao5056" target="_blank"><img id="github-logo" src="images/github.png"/></a>
               </li>
             </ul>
           </div>
