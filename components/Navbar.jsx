@@ -5,7 +5,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="./">
             <img className="logo" src="images/alan-cropped.png"/>
           </a>
 
@@ -16,13 +16,13 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav w-100">
               <li className="nav-item ms-3">
-                <a href="/" className="nav-link">Home</a>
+                <a href="./" className="nav-link">Home</a>
               </li>
               <li className="nav-item ms-3">
-                <a href="/about" className="nav-link">About</a>
+                <a href="./about" className="nav-link">About</a>
               </li>
               <li className="nav-item ms-3">
-                <a href="/blog" className="nav-link">Blog</a>
+                <a href="./blog" className="nav-link">Blog</a>
               </li>
               <li className="nav-item" id="youtube">
                 <a href="https://www.youtube.com/@AlanCS-ub9id" target="_blank"><img id="youtube-logo" src="images/youtube.png"/></a>
