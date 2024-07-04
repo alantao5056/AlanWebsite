@@ -17,17 +17,17 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "",
+    path: "/",
     element: <Home />,
     errorElement: <ErrorPage />
   }, 
   {
-    path: "about",
+    path: "/about",
     element: <About />,
     errorElement: <ErrorPage />
   },
   {
-    path: "blog",
+    path: "/blog",
     element: <Blog />,
     errorElement: <ErrorPage />
   },
