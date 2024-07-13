@@ -1,0 +1,155 @@
+* {
+  color: #dadada
+}
+
+h1 {
+  text-align: center;
+}
+
+.inner {
+  min-height: calc(100vh - 230px);
+}
+
+
+
+/* Home */
+
+.bg-container {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 76px);
+  overflow: hidden;
+  position: absolute;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+}
+
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #4fc3cd;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44,
+  0 0 50px #4fc3dc,
+  0 0 100px #4fc3dc;
+  animation: animate1 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  background-color: #ff2d75;
+  box-shadow: 0 0 0 10px #ff2d7544,
+  0 0 50px #ff2d75,
+  0 0 100px #ff2d75;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+
+
+.word-container {
+  display: flex;
+}
+
+.word-container .words {
+  height: 30px;
+  overflow: hidden;
+}
+
+.word-container .word {
+  display: block;
+  animation: animate2 20s infinite;
+}
+
+@keyframes animate2 {
+  5% {
+    transform: translateY(-100%);
+  }
+  10% {
+    transform: translateY(-100%);
+  }
+  15% {
+    transform: translateY(-200%);
+  }
+  20% {
+    transform: translateY(-200%);
+  }
+  25% {
+    transform: translateY(-300%);
+  }
+  30% {
+    transform: translateY(-300%);
+  }
+  35% {
+    transform: translateY(-400%);
+  }
+  40% {
+    transform: translateY(-400%);
+  }
+  45% {
+    transform: translateY(-500%);
+  }
+  50% {
+    transform: translateY(-500%);
+  }
+  55% {
+    transform: translateY(-600%);
+  }
+  60% {
+    transform: translateY(-600%);
+  }
+  65% {
+    transform: translateY(-700%);
+  }
+  70% {
+    transform: translateY(-700%);
+  }
+  75% {
+    transform: translateY(-800%);
+  }
+  80% {
+    transform: translateY(-800%);
+  }
+  85% {
+    transform: translateY(-900%);
+  }
+  90% {
+    transform: translateY(-900%);
+  }
+  95% {
+    transform: translateY(0%);
+  }
+}
+
+.little {
+  position: absolute;
+  top: calc(100% - 27px);
+}
+
+/* About */
+.about-card p {
+  width: 60%;
+}
+
+@media (max-width: 1000px) {
+  .about-card p {
+    width: 100%;
+  }
+}
+
+/* Blog */
+.blog-card {
+  max-width: 800px;
+}

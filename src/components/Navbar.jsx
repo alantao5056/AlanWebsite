@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img className="logo" src="../images/alan-cropped.png"/>
@@ -16,17 +16,20 @@ export default function Navbar() {
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav w-100">
-              <li className="nav-item ms-3">
+              {/* <li className="nav-item ms-3">
                 <Link to="/" className="nav-link">Home</Link>
-              </li>
+              </li> */}
               <li className="nav-item ms-3">
                 <Link to="/about" className="nav-link">About</Link>
+              </li>
+              <li className="nav-item ms-3">
+                <Link to="/projects" className="nav-link">Projects</Link>
               </li>
               <li className="nav-item ms-3">
                 <Link to="/blog" className="nav-link">Blog</Link>
               </li>
               <li className="nav-item" id="youtube">
-                <Link to="https://www.youtube.com/@AlanCS-ub9id" target="_blank"><img id="youtube-logo" src="../images/youtube.png"/></Link>
+                <Link to="https://www.youtube.com/channel/UCzdtyvYuUM6EGKhtsbF_jhQ" target="_blank"><img id="youtube-logo" src="../images/youtube.png"/></Link>
               </li>
               <li className="nav-item" id="github">
                 <Link to="https://github.com/alantao5056" target="_blank"><img id="github-logo" src="../images/github.png"/></Link>
