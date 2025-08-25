@@ -15,23 +15,26 @@ export default function Navbar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav w-100">
+            <ul className="navbar-nav w-100 d-flex justify-content-start">
               {/* <li className="nav-item ms-3">
                 <Link to="/" className="nav-link">Home</Link>
               </li> */}
-              <li className="nav-item ms-3">
+              <li className="nav-item ms-2 pt-1">
                 <Link to="/about" className="nav-link">About</Link>
               </li>
-              <li className="nav-item ms-3">
+              <li className="nav-item ms-2 pt-1 me-auto">
                 <Link to="/projects" className="nav-link">Projects</Link>
               </li>
-              <li className="nav-item ms-3">
+              {/* <li className="nav-item ms-3">
                 <Link to="/blog" className="nav-link">Blog</Link>
+              </li> */}
+              <li className="nav-item ms-2" id="linkedin">
+                <Link to="https://www.linkedin.com/in/leran-tao-1929b8379/" target="_blank"><img id="linkedin-logo" src="../images/linkedin.png"/></Link>
               </li>
-              <li className="nav-item" id="youtube">
+              <li className="nav-item ms-2" id="youtube">
                 <Link to="https://www.youtube.com/channel/UCzdtyvYuUM6EGKhtsbF_jhQ" target="_blank"><img id="youtube-logo" src="../images/youtube.png"/></Link>
               </li>
-              <li className="nav-item" id="github">
+              <li className="nav-item ms-2 me-2" id="github">
                 <Link to="https://github.com/alantao5056" target="_blank"><img id="github-logo" src="../images/github.png"/></Link>
               </li>
             </ul>

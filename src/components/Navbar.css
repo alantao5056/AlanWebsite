@@ -11,16 +11,16 @@
   padding-left: 10%;
 } */
 #github {
-  position: absolute;
-  right: 20px;
   padding: 8px 0;
 }
-#github-logo,#youtube-logo {
+#github-logo,#youtube-logo,#linkedin-logo {
   width: 30px;
 }
 
 #youtube {
-  position: absolute;
-  right: 70px;
+  padding: 8px 0;
+}
+
+#linkedin {
   padding: 8px 0;
 }

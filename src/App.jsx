@@ -24,7 +24,8 @@ export default function App() {
           <Route path = "/" element = {<Home />} />
           <Route path = "/about" element = {<About />} />
           <Route path = "/projects" element = {<Projects />}></Route>
-          <Route path = "/blog" element = {<Blog />} />
+          {/* <Route path = "/blog" element = {<Blog />} /> */}
+          <Route path = "/*" element = {<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>
