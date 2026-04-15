@@ -1,5 +1,6 @@
 .logo {
   width: 50px;
+  height: 50px;
 }
 
 .navbar-brand{
@@ -15,6 +16,8 @@
 }
 #github-logo,#youtube-logo,#linkedin-logo {
   width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 #youtube {

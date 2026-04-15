@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Alan Tao - Home" showFooter={false}>
+  <div class="home">
+    {/* background */}
+    <div class="bg-container">
+      <div class="bubbles">
+        {[11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28].map((i) => (
+          <span style={`--i: ${i}`}></span>
+        ))}
+      </div>
+    </div>
+
+    {/* words */}
+    <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-75">
+      <div>
+        <h1 class="display-1 mt-5">
+          Alan Tao
+        </h1>
+
+        <br />
+
+        <div class="d-flex flex-wrap pe-3">
+          <h3 class="word-container d-flex ms-5 align-self-center align-items-center" style="width: 100%; max-width: 850px">
+            <span class="pre-words">I am a &nbsp;</span>
+            <div class="words">
+              <span class="word text-primary">Programmer</span>
+              <span class="word text-primary">High Schooler</span>
+              <span class="word text-primary">Mathematician</span>
+              <span class="word text-primary">Data Scientist</span>
+              <span class="word text-primary">Badminton Player</span>
+              <span class="word text-primary">Violist</span>
+              <span class="word text-primary">Gamer</span>
+              <span class="word text-primary">YouTuber</span>
+              <span class="word text-primary">Rubik's Cuber</span>
+              <span class="word text-primary">Ukulele Player</span>
+            </div>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="little text-center">This site is built with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.</p>
+    </div>
+  </div>
+</Layout>
