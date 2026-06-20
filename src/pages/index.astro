@@ -1,49 +1,917 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const carouselWords = [
+  'programmer',
+  'web developer',
+  'YouTuber',
+  'mathematician',
+  'badminton player',
+  'data scientist',
+  'lifelong learner',
+  'gamer',
+  'problem solver',
+  'violist',
+];
+
+const sections = [
+  { num: '01', id: 'about', title: 'About Me', desc: 'Who I am and what I care about.' },
+  { num: '02', id: 'projects', title: 'Projects', desc: "A few things I've built." },
+  { num: '03', id: 'achievements', title: 'Achievements', desc: "Things I'm proud of." },
+  { num: '04', id: 'contact', title: 'Contact', desc: 'Ways to reach me.' },
+];
+
+const socials = [
+  { label: 'Email', href: 'mailto:taojianzzh@gmail.com' },
+  { label: 'Github', href: 'https://github.com/alantao5056' },
+  { label: 'Linkedin', href: 'https://www.linkedin.com/in/leran-tao-1929b8379/' },
+  { label: 'Youtube', href: 'https://www.youtube.com/channel/UCzdtyvYuUM6EGKhtsbF_jhQ' },
+];
+
+const achievements = [
+  {
+    title: 'USA Computing Olympiad Platinum',
+    desc: 'Platinum division qualifier in the 2026 First Contest with a certified score of 1000/1000.',
+    tags: ['Competitive Programming'],
+  },
+  {
+    title: 'Massachusetts Computer Science Olympiad 1st Place',
+    desc: 'First place in the Massachusetts Computer Science Olympiad (MACSO) summer 2025. Won a gold cup + gold medal + $1700 Wolfram Alpha Subscription + whale plushie.',
+    tags: ['Competitive Programming'],
+  },
+  {
+    title: 'Boston University High School Hackathon 3rd Place',
+    desc: 'Third place in the Boston University High School Hackathon 2026. Developed a food pantry finding app with my teammate Raymund Thongthipaya.',
+    tags: ['Hackathon', 'Web development'],
+  },
+  {
+    title: 'Programming Club Captain',
+    desc: 'Completely reconstructed and led the programming club at Newton North High School. Organized weekly meetings, coached us to 6th place nationally in the Intermediate divison of the American Computer Science League, created the club website and poster, and hosted a hackathon from scratch with more than $300 in prizes.',
+    tags: ['Leadership', 'CS'],
+  },
+  {
+    title: 'ACSL Intermediate Division Gold Medalist',
+    desc: 'Gold medalist in the American Computer Science League Intermediate division for the 2024-2025 season with a score of 39/40',
+    tags: ['Competitive Programming'],
+  },
+  {
+    title: 'The President’s Volunteer Service Award - Gold',
+    desc: 'Received the President’s Volunteer Service Award at the Gold level for completing over 100 hours of volunteering at the Roslindale food pantry.',
+    tags: ['Volunteer', 'Community'],
+  },
+  {
+    title: 'Boston Youth Symphony Orchestra BYS Viola',
+    desc: 'Violist in the highest level of the Boston Youth Symphony Orchestras after picking the instrument back up in high school.',
+    tags: ['Viola', 'Music'],
+  },
+  {
+    title: 'Badminton Club Captain',
+    desc: 'Captain and coach of the school badminton club, and volunteer coach at Newton Parks & Recreation badminton camps.',
+    tags: ['Badminton', 'Leadership'],
+  },
+];
+
+const projects = [
+  {
+    title: 'PantryFinder',
+    image: '/images/projects/pantry-finder.png',
+    desc: 'A free, community-powered platform that helps people find food pantries near them. 14,000+ pantries across 4,400+ cities.',
+    link: 'https://pantryfinder.org/',
+    tags: ['Web', 'Community', 'React', 'Firebase'],
+  },
+  {
+    title: 'HEIC to JPG Batch Converter',
+    image: '/images/projects/heic-to-jpg.png',
+    desc: "A Windows app on the Microsoft Store for bulk converting Apple's HEIC images to JPG, making photos accessible across devices. 10k+ downloads.",
+    link: 'https://apps.microsoft.com/detail/9pmm2c5ch29k?hl=en-US&gl=US',
+    tags: ['Windows', 'C#'],
+  },
+  {
+    title: "Sortify",
+    image: '/images/projects/sortify.jpg',
+    desc: "A Windows app on the Microsoft Store for organizing photos and videos based on metadata like date. Fully customizable sorting rules and folder structures.",
+    link: 'https://apps.microsoft.com/detail/9ncrd760814m?hl=en-US&gl=US',
+    tags: ['Windows', 'C#'],
+  },
+  {
+    title: 'Programming Club Website',
+    image: '/images/projects/programming-club.png',
+    desc: 'The official website for the programming club at Newton North High School. Built with React and hosted on GitHub Pages.',
+    link: 'https://nnhsprogramming.club',
+    tags: ['React', 'School'],
+  },
+  {
+    title: 'SAT Vocab Practice Website',
+    image: '/images/projects/sat-vocab.png',
+    desc: 'A very simple flash-card based SAT vocab website I built for myself. Made with Astro. ',
+    link: 'https://sat-vocab.alantao.com/',
+    tags: ['Astro', 'SAT'],
+  },
+  {
+    title: 'Trim Trello',
+    image: '/images/projects/trim-trello.png',
+    desc: 'A Chrome extension that declutters Trello boards by hiding completed tasks and archived lists. Built with JavaScript.',
+    link: 'https://chromewebstore.google.com/detail/trim-trello/jfijoefmmlgalanmckbdedhakndgjcah?hl=en-US',
+    tags: ['Chrome Extension', 'JavaScript'],
+  },
+  {
+    title: 'Spotify Songs',
+    image: '/images/projects/spotify-songs.png',
+    desc: 'A data-science project using R to analyze trends across Spotify tracks (danceability, popularity, speechiness) from Kaggle datasets.',
+    link: 'https://alienjao.quarto.pub/spotify-songs/pages/',
+    tags: ['R', 'Data Science'],
+  },
+  {
+    title: 'Carbon Dioxide',
+    image: '/images/projects/carbon-dioxide.png',
+    desc: 'An R project analyzing trends in global carbon dioxide emissions using Kaggle datasets.',
+    link: 'https://alienjao.quarto.pub/carbon-dioxide/',
+    tags: ['R', 'Data Science'],
+  },
+  {
+    title: 'Namedle',
+    image: '/images/projects/namedle.png',
+    desc: 'A fun twist on Wordle where players guess names instead of words. Built with C++.',
+    link: 'https://github.com/alantao5056/Namedle',
+    tags: ['C++', 'Console'],
+  },
+];
 ---
 
-<Layout title="Alan Tao - Home" showFooter={false}>
-  <div class="home">
-    {/* background */}
-    <div class="bg-container">
-      <div class="bubbles">
-        {[11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28, 11, 12, 24, 10, 14, 23, 18, 16, 19, 20, 22, 25, 18, 21, 15, 13, 26, 17, 13, 28].map((i) => (
-          <span style={`--i: ${i}`}></span>
-        ))}
-      </div>
-    </div>
+<Layout title="Alan Tao">
+  <div class="page">
+    <!-- ===================== HERO / TOP ===================== -->
+    <section id="top" class="hero">
+      <div class="hero-text">
+        <!-- <p class="kicker">Hi there, I'm</p> -->
+        <h1 class="name">Alan Tao.</h1>
 
-    {/* words */}
-    <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-75">
-      <div>
-        <h1 class="display-1 mt-5">
-          Alan Tao
-        </h1>
+        <p class="tagline">
+          <span>I'm a</span>
+          <span class="carousel">
+            <span id="carousel-word" class="carousel-word">{carouselWords[0]}</span><span class="caret"></span>
+          </span>
+        </p>
 
-        <br />
+        <!-- Section links -->
+        <nav class="sec-nav">
+          {sections.map((s) => (
+            <a href={`#${s.id}`} class="sec-link">
+              <span class="sec-num">{s.num}</span>
+              <span class="sec-title">{s.title}</span>
+              <span class="sec-desc">{s.desc}</span>
+              <span class="sec-arrow">→</span>
+            </a>
+          ))}
+        </nav>
 
-        <div class="d-flex flex-wrap pe-3">
-          <h3 class="word-container d-flex ms-5 align-self-center align-items-center" style="width: 100%; max-width: 850px">
-            <span class="pre-words">I am a &nbsp;</span>
-            <div class="words">
-              <span class="word text-primary">Programmer</span>
-              <span class="word text-primary">High Schooler</span>
-              <span class="word text-primary">Mathematician</span>
-              <span class="word text-primary">Data Scientist</span>
-              <span class="word text-primary">Badminton Player</span>
-              <span class="word text-primary">Violist</span>
-              <span class="word text-primary">Gamer</span>
-              <span class="word text-primary">YouTuber</span>
-              <span class="word text-primary">Rubik's Cuber</span>
-              <span class="word text-primary">Ukulele Player</span>
-            </div>
-          </h3>
+        <!-- Social links -->
+        <div class="socials">
+          {socials.map((s, i) => (
+            <>
+              {i > 0 && <span class="dot">·</span>}
+              <a href={s.href} target={s.href.startsWith('mailto:') ? undefined : '_blank'} rel="noopener noreferrer" class="social">{s.label}</a>
+            </>
+          ))}
         </div>
       </div>
-    </div>
 
-    <div class="d-flex justify-content-center">
-      <p class="little text-center">This site is built with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.</p>
-    </div>
+      <div class="hero-graphic">
+        <canvas id="net-canvas"></canvas>
+      </div>
+    </section>
+
+    <!-- ===================== 01 ABOUT ===================== -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About Me.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Hi! I'm Alan Tao, a high school student passionate about programming. 
+        </p>
+        <p>
+          I first got into programming in 4th grade by playing around with Scratch. Since then, I've been engaged in competitive programming in C++ and Java, web devlopment with React and Astro, data science projects in R, and desktop applications in C#. 
+        </p>
+        <p>
+          Outside of programming I'm a badminton player, a violist in the Boston Youth Symphony
+          Orchestras, a fairly committed gamer, and a YouTuber posting everything from USACO solutions
+          to ukulele covers.
+        </p>
+        <p>Wherever I go, I try to bring passion, curiosity, and a real desire to keep learning.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 02 PROJECTS ===================== -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Projects.</h2>
+      </div>
+      <p class="section-lede">I'm always tinkering with something new. Here are a few of my favorites.</p>
+      <div class="proj-grid">
+        {projects.map((p) => (
+          <a href={p.link} target="_blank" rel="noopener noreferrer" class="proj-card">
+            <img src={p.image || '/images/placeholder.png'} alt={p.title} class="proj-img" />
+            <h3 class="proj-title">{p.title}</h3>
+            <p class="proj-desc">{p.desc}</p>
+            <div class="tags">
+              {p.tags.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===================== 03 ACHIEVEMENTS ===================== -->
+    <section id="achievements" class="section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Achievements.</h2>
+      </div>
+      <div class="ach-list">
+        {achievements.map((a) => (
+          <div class="ach-card">
+            <h3 class="ach-title">{a.title}</h3>
+            <p class="ach-desc">{a.desc}</p>
+            <div class="pills">
+              {a.tags.map((t) => <span class="pill">{t}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===================== 04 CONTACT ===================== -->
+    <section id="contact" class="section section-last">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Contact Me.</h2>
+      </div>
+      <p class="contact-lede">
+        I really enjoy meeting new people. Whether it's about a project, an idea, or just to say hi —
+        feel free to reach out.
+      </p>
+      <div class="contact-links">
+        {socials.map((s, i) => (
+          <>
+            {i > 0 && <span class="dot">·</span>}
+            <a href={s.href} target={s.href.startsWith('mailto:') ? undefined : '_blank'} rel="noopener noreferrer" class="contact-link">{s.label}</a>
+          </>
+        ))}
+      </div>
+      <div class="footer-row">
+        <span class="copyright">© 2026 Alan Tao.</span>
+        <a href="#top" class="back-top">Back to top ↑</a>
+      </div>
+    </section>
   </div>
-</Layout>
+</PortfolioLayout>
+
+<script define:vars={{ carouselWords }}>
+  // ---------- Word carousel (typewriter) ----------
+  (function () {
+    const el = document.getElementById('carousel-word');
+    if (!el) return;
+    const typeSpeed = 90;    // ms per typed letter
+    const eraseSpeed = 45;   // ms per erased letter
+    const holdFull = 1500;   // pause once fully typed
+    const holdEmpty = 350;   // pause once erased
+    let idx = 0;
+    let pos = 0;
+    let erasing = false;
+
+    el.style.animation = 'none';
+    el.textContent = '';
+
+    function tick() {
+      const word = carouselWords[idx];
+      if (!erasing) {
+        pos++;
+        el.textContent = word.slice(0, pos);
+        if (pos === word.length) {
+          erasing = true;
+          setTimeout(tick, holdFull);
+        } else {
+          setTimeout(tick, typeSpeed);
+        }
+      } else {
+        pos--;
+        el.textContent = word.slice(0, pos);
+        if (pos === 0) {
+          erasing = false;
+          idx = (idx + 1) % carouselWords.length;
+          setTimeout(tick, holdEmpty);
+        } else {
+          setTimeout(tick, eraseSpeed);
+        }
+      }
+    }
+
+    setTimeout(tick, holdFull);
+  })();
+
+  // ---------- Interactive node network ----------
+  (function () {
+    const canvas = document.getElementById('net-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const mouse = { x: -9999, y: -9999, active: false };
+    let w = 0, h = 0;
+    let nodes = [];
+
+    const rand = (a, b) => a + Math.random() * (b - a);
+
+    const seed = () => {
+      const target = Math.max(26, Math.min(46, Math.round((w * h) / 9000)));
+      nodes = [];
+      for (let i = 0; i < target; i++) {
+        const hub = Math.random() < 0.22;
+        nodes.push({
+          x: rand(w * 0.12, w * 0.88),
+          y: rand(h * 0.12, h * 0.88),
+          vx: rand(-0.25, 0.25),
+          vy: rand(-0.25, 0.25),
+          m: hub ? rand(1.8, 2.6) : rand(0.7, 1.2),
+          hub,
+          ph: Math.random() * Math.PI * 2,
+        });
+      }
+    };
+
+    // Re-measure only when the container's *integer* device-pixel size
+    // actually changes. Writing canvas.width/height clears the bitmap and
+    // resets the transform, so doing it on every subpixel jitter is what
+    // made resizing look broken.
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      const cssW = rect.width, cssH = rect.height;
+      if (!cssW || !cssH) return;                 // not laid out yet
+      const bw = Math.round(cssW * dpr);
+      const bh = Math.round(cssH * dpr);
+      if (canvas.width === bw && canvas.height === bh) return; // nothing changed
+      // remap existing nodes from the old logical size into the new one
+      if (w && h && nodes.length) {
+        const sx = cssW / w, sy = cssH / h;
+        for (const nd of nodes) { nd.x *= sx; nd.y *= sy; }
+      }
+      canvas.width = bw;
+      canvas.height = bh;
+      w = cssW; h = cssH;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);     // draw in CSS pixels
+      if (nodes.length === 0) seed();
+    };
+    resize();
+    // Observe the parent box (not the canvas itself) so resizing the
+    // backing buffer can never feed back into the observer.
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas.parentElement || canvas);
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
+    });
+    canvas.addEventListener('mouseleave', () => { mouse.active = false; mouse.x = -9999; mouse.y = -9999; });
+
+    // --- Tunable physics constants ---
+    const LINK = 160;       // px: two nodes link (draw a line + spring) when closer than this
+    const REPEL = 3500;     // node-to-node push-apart strength; higher = more spread out
+    const SPRING = 0.02;    // pull along links toward REST length; higher = tighter clusters
+    const REST = 100;        // px: resting distance a link wants to settle at
+    const CENTER = 0.0006;  // pull toward canvas center; higher = stays framed, lower = drifts to edges
+    const WANDER = 5;       // ambient drift force; higher = nodes roam more freely at rest, 0 = settle still
+    const MOUSE_R = 140;    // px: cursor influence radius
+    const MOUSE_F = 5.0;    // cursor push strength
+    const DAMP = 0.9;       // velocity retained each step (0–1); higher = more glide/momentum, lower = stops fast
+    const MAX_SPEED = 3;  // px/step velocity clamp; caps how fast a node can fly
+    const DT = 1 / 60;      // fixed physics timestep (seconds) — keeps motion identical on 60/120/144Hz screens
+    let t = 0;
+
+    const step = () => {
+      t += DT;
+      const n = nodes.length;
+      for (let i = 0; i < n; i++) {
+        const a = nodes[i];
+        let fx = 0, fy = 0;
+        fx += (w / 2 - a.x) * CENTER;
+        fy += (h / 2 - a.y) * CENTER;
+        // gentle deterministic wander so the cloud keeps breathing at rest
+        fx += Math.cos(t * 0.5 + a.ph) * WANDER;
+        fy += Math.sin(t * 0.4 + a.ph * 1.3) * WANDER;
+        for (let j = 0; j < n; j++) {
+          if (i === j) continue;
+          const b = nodes[j];
+          let dx = a.x - b.x, dy = a.y - b.y;
+          let d2 = dx * dx + dy * dy;
+          if (d2 < 0.01) { dx = rand(-1, 1); dy = rand(-1, 1); d2 = 1; }
+          const d = Math.sqrt(d2);
+          const rep = (REPEL * b.m) / d2;
+          fx += (dx / d) * rep;
+          fy += (dy / d) * rep;
+          if (d < LINK) {
+            const s = (d - REST) * SPRING;
+            fx -= (dx / d) * s;
+            fy -= (dy / d) * s;
+          }
+        }
+        if (mouse.active) {
+          const dx = a.x - mouse.x, dy = a.y - mouse.y;
+          const d = Math.hypot(dx, dy) || 0.001;
+          if (d < MOUSE_R) {
+            const f = 1 - d / MOUSE_R;
+            const push = f * f * MOUSE_F * (1 / a.m + 0.4);
+            fx += (dx / d) * push * 60;
+            fy += (dy / d) * push * 60;
+          }
+        }
+        a.vx = (a.vx + fx * DT) * DAMP;
+        a.vy = (a.vy + fy * DT) * DAMP;
+        const sp = Math.hypot(a.vx, a.vy);
+        if (sp > MAX_SPEED) { a.vx = (a.vx / sp) * MAX_SPEED; a.vy = (a.vy / sp) * MAX_SPEED; }
+      }
+      const pad = 10;
+      for (const a of nodes) {
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < pad) { a.x = pad; a.vx *= -0.6; }
+        if (a.x > w - pad) { a.x = w - pad; a.vx *= -0.6; }
+        if (a.y < pad) { a.y = pad; a.vy *= -0.6; }
+        if (a.y > h - pad) { a.y = h - pad; a.vy *= -0.6; }
+      }
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      const n = nodes.length;
+      for (let i = 0; i < n; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < n; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.hypot(dx, dy);
+          if (d < LINK) {
+            const prox = 1 - d / LINK;
+            let mInf = 0;
+            if (mouse.active) {
+              const mx = (a.x + b.x) / 2 - mouse.x;
+              const my = (a.y + b.y) / 2 - mouse.y;
+              mInf = Math.max(0, 1 - Math.hypot(mx, my) / 200);
+            }
+            const op = prox * (0.2 + mInf * 0.6);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = 'rgba(59,110,240,' + op.toFixed(3) + ')';
+            ctx.lineWidth = 0.5 + prox * 0.9 + mInf * 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      for (const a of nodes) {
+        let mInf = 0;
+        if (mouse.active) {
+          mInf = Math.max(0, 1 - Math.hypot(a.x - mouse.x, a.y - mouse.y) / MOUSE_R);
+        }
+        const pulse = 0.5 + 0.5 * Math.sin(t * 1.6 + a.ph);
+        const rad = a.m * (1.7 + pulse * 0.5) + mInf * 2.4;
+        if (a.hub || mInf > 0.05) {
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, rad + 5 + mInf * 6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(59,110,240,' + (0.05 + mInf * 0.14).toFixed(3) + ')';
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, rad, 0, Math.PI * 2);
+        const bright = a.hub ? 0.85 : 0.55;
+        ctx.fillStyle = mInf > 0.05
+          ? 'rgba(' + Math.round(120 + mInf * 135) + ',' + Math.round(150 + mInf * 90) + ',255,' + (bright + mInf * 0.15).toFixed(2) + ')'
+          : 'rgba(59,110,240,' + bright + ')';
+        ctx.fill();
+      }
+    };
+
+    // rAF render loop synced to the display (smooth), with a fixed-timestep
+    // accumulator so physics stays stable regardless of refresh rate.
+    let last = performance.now();
+    let acc = 0;
+    const loop = (now) => {
+      try {
+        if (w && h && nodes.length) {
+          let elapsed = (now - last) / 1000;
+          if (elapsed > 0.1) elapsed = 0.1; // clamp big gaps (e.g. tab was hidden)
+          acc += elapsed;
+          let steps = 0;
+          while (acc >= DT && steps < 5) { step(); acc -= DT; steps++; }
+          draw();
+        }
+      } catch (e) { /* never let one bad frame kill the loop */ }
+      last = now;
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  })();
+</script>
+
+<style>
+  .page {
+    width: 100%;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    min-height: 100vh;   /* fallback for browsers without dvh */
+    min-height: 100dvh;  /* fills the *visible* viewport on mobile (accounts for address bar) */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 200px;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 48px 56px;
+    box-sizing: border-box;
+  }
+  .hero-text {
+    flex: 1 1 460px;
+    min-width: 300px;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+  }
+  .kicker {
+    margin: 0 0 14px;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: #9a9aa3;
+    font-weight: 500;
+  }
+  .name {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.96;
+    font-size: clamp(52px, 9vw, 104px);
+    color: #f4f4f6;
+  }
+  .tagline {
+    margin: 18px 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: clamp(22px, 3.4vw, 34px);
+    color: #c4c4cc;
+    display: flex;
+    align-items: baseline;
+    gap: 0.32em;
+    flex-wrap: wrap;
+  }
+  .carousel {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .carousel-word {
+    display: inline-block;
+    color: #3b6ef0;
+    font-weight: 600;
+  }
+  .caret {
+    display: inline-block;
+    width: 3px;
+    height: 0.95em;
+    margin-left: 4px;
+    background: #3b6ef0;
+    transform: translateY(0.08em);
+    animation: caretBlink 1s steps(1) infinite;
+  }
+
+  /* Section nav — list variant */
+  .sec-nav {
+    margin-top: clamp(36px, 6vh, 64px);
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #222229;
+  }
+  .sec-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 4px;
+    border-bottom: 1px solid #222229;
+    transition: padding-left 0.2s ease;
+  }
+  .sec-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: #3b6ef0;
+    font-weight: 600;
+    width: 28px;
+  }
+  .sec-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #f4f4f6;
+    width: 160px;
+    transition: color 0.2s ease;
+  }
+  .sec-desc {
+    font-size: 14px;
+    color: #8a8a93;
+    flex: 1;
+  }
+  .sec-arrow {
+    font-size: 18px;
+    color: #5a5a63;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .sec-link:hover {
+    padding-left: 14px;
+  }
+  .sec-link:hover .sec-title,
+  .sec-link:hover .sec-arrow {
+    color: #3b6ef0;
+  }
+  .sec-link:hover .sec-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Social links */
+  .socials {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .social {
+    color: #c4c4cc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .social:hover {
+    color: #3b6ef0;
+  }
+  .dot {
+    color: #3a3a42;
+  }
+
+  .hero-graphic {
+    flex: 2 1 460px;
+    min-width: 320px;
+    align-self: center; /* don't stretch to the row height */
+    aspect-ratio: 1 / 1; /* square: height tracks width */
+    position: relative; /* anchor the absolutely-positioned canvas */
+  }
+  #net-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+  }
+
+  /* On narrow screens the columns stack — keep the hero exactly one
+     screenful by letting the graphic flex into whatever space is left
+     below the text instead of forcing a fixed 480px. */
+  @media (max-width: 840px) {
+    .hero {
+      position: relative; /* contain the full-bleed canvas */
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      padding: 32px 24px;
+    }
+    /* Canvas fills the whole hero as a background layer */
+    .hero-graphic {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;       /* fallback */
+      height: 100dvh;     /* explicit, definite height so the canvas resolves on mobile Safari */
+      aspect-ratio: auto; /* drop the desktop square; fill the hero instead */
+      opacity: 0.85;
+      z-index: 0;
+      pointer-events: none; /* let touches/taps fall through to the text */
+    }
+    /* Text sits on top of the canvas */
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  /* ===================== SECTIONS ===================== */
+  .section {
+    scroll-margin-top: 40px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 96px 32px;
+    border-top: 1px solid #1a1a20;
+  }
+  .section-last {
+    padding-bottom: 72px;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: #3b6ef0;
+    font-weight: 600;
+  }
+  .section-title {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(34px, 5vw, 52px);
+    color: #f4f4f6;
+  }
+  .section-lede {
+    margin: -8px 0 36px;
+    font-size: 16px;
+    color: #9a9aa3;
+    max-width: 560px;
+  }
+
+  /* About prose */
+  .prose {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #b6b6bf;
+  }
+  .prose p {
+    margin: 0;
+  }
+  .prose a {
+    color: #3b6ef0;
+    text-decoration: none;
+  }
+  .prose a:hover {
+    text-decoration: underline;
+  }
+  .hl {
+    color: #ededf0;
+    font-weight: 600;
+  }
+
+  /* Achievements */
+  .ach-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ach-card {
+    background: #141418;
+    border: 1px solid #26262e;
+    border-radius: 16px;
+    padding: 26px 28px;
+  }
+  .ach-title {
+    margin: 0 0 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #f4f4f6;
+  }
+  .ach-desc {
+    margin: 0 0 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #9a9aa3;
+    max-width: 640px;
+  }
+  .pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3b6ef0;
+    background: rgba(59, 110, 240, 0.12);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  /* Projects */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .proj-card {
+    text-decoration: none;
+    color: inherit;
+    background: #141418;
+    border: 1px solid #26262e;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 170px;
+    transition: transform 0.22s ease, border-color 0.22s ease;
+  }
+  .proj-card:hover {
+    transform: translateY(-4px);
+    border-color: #3b6ef0;
+  }
+  .proj-title {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #f4f4f6;
+  }
+  .proj-desc {
+    margin: 0;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #9a9aa3;
+  }
+  .tags {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8a8a93;
+    border: 1px solid #2e2e36;
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  /* Contact */
+  .contact-lede {
+    margin: 0 0 28px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #b6b6bf;
+    max-width: 560px;
+  }
+  .contact-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .contact-link {
+    color: #3b6ef0;
+    text-decoration: none;
+  }
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+  .footer-row {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #1a1a20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .copyright {
+    font-size: 13px;
+    color: #6a6a72;
+  }
+  .back-top {
+    font-size: 13px;
+    color: #8a8a93;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .back-top:hover {
+    color: #3b6ef0;
+  }
+</style>
