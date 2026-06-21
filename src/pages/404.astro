@@ -2,13 +2,109 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Oops! - 404 Not Found">
-  <div id="error-page" class="container text-center py-5">
-    <h1 class="display-1">Oops!</h1>
-    <p class="lead">Sorry, the page you are looking for does not exist.</p>
-    <p>
-      <i>404 - Not Found</i>
-    </p>
-    <a href="/" class="btn btn-primary mt-3">Back to Home</a>
-  </div>
+<Layout title="404 — Page Not Found" description="The page you're looking for doesn't exist.">
+  <main class="nf">
+    <div class="nf-inner">
+      <p class="nf-kicker">Error 404</p>
+      <h1 class="nf-code">404</h1>
+      <h2 class="nf-title">This page wandered off.</h2>
+      <p class="nf-msg">
+        The link is broken or the page never existed. Let's get you back to
+        solid ground.
+      </p>
+      <div class="nf-actions">
+        <a href="/" class="nf-btn nf-btn-primary">← Back to Home</a>
+        <a href="/#projects" class="nf-btn nf-btn-ghost">See my Projects</a>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .nf {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    box-sizing: border-box;
+  }
+
+  .nf-inner {
+    text-align: center;
+    max-width: 560px;
+  }
+
+  .nf-kicker {
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #3b6ef0;
+  }
+
+  .nf-code {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    font-size: clamp(110px, 26vw, 240px);
+    color: #f4f4f6;
+  }
+
+  .nf-title {
+    margin: 8px 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(26px, 5vw, 38px);
+    color: #f4f4f6;
+  }
+
+  .nf-msg {
+    margin: 16px auto 0;
+    max-width: 440px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #9a9aa3;
+  }
+
+  .nf-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nf-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .nf-btn-primary {
+    background: #3b6ef0;
+    color: #fff;
+    border: 1px solid #3b6ef0;
+  }
+  .nf-btn-primary:hover {
+    background: #5683ff;
+    border-color: #5683ff;
+  }
+  .nf-btn-ghost {
+    background: transparent;
+    color: #c4c4cc;
+    border: 1px solid #2e2e36;
+  }
+  .nf-btn-ghost:hover {
+    color: #3b6ef0;
+    border-color: #3b6ef0;
+  }
+</style>

@@ -74,64 +74,73 @@ const achievements = [
 const projects = [
   {
     title: 'PantryFinder',
-    image: '/images/projects/pantry-finder.png',
+    images: ['/images/projects/pantry-finder.png'],
     desc: 'A free, community-powered platform that helps people find food pantries near them. 14,000+ pantries across 4,400+ cities.',
+    longDesc: 'PantryFinder is a free, community-powered platform that helps people quickly locate food pantries near them. It brings together over 14,000 pantries across 4,400+ cities into a single, fast, searchable map. Built with React on the front end and Firebase for data and hosting, it focuses on accessibility and reliability so that anyone can find help when they need it most.',
     link: 'https://pantryfinder.org/',
     tags: ['Web', 'Community', 'React', 'Firebase'],
   },
   {
     title: 'HEIC to JPG Batch Converter',
-    image: '/images/projects/heic-to-jpg.png',
+    images: ['/images/projects/heic-to-jpg.png'],
     desc: "A Windows app on the Microsoft Store for bulk converting Apple's HEIC images to JPG, making photos accessible across devices. 10k+ downloads.",
+    longDesc: "A Windows desktop app, published on the Microsoft Store with over 10,000 downloads, that batch-converts Apple's HEIC photos into universally compatible JPGs. Drag in an entire folder and convert hundreds of images at once, so your photos open anywhere — not just on Apple devices. Built in C# with a clean, no-friction interface.",
     link: 'https://apps.microsoft.com/detail/9pmm2c5ch29k?hl=en-US&gl=US',
     tags: ['Windows', 'C#'],
   },
   {
     title: "Sortify",
-    image: '/images/projects/sortify.jpg',
+    images: ['/images/projects/sortify.jpg', '/images/projects/heic-to-jpg.png'],
     desc: "A Windows app on the Microsoft Store for organizing photos and videos based on metadata like date. Fully customizable sorting rules and folder structures.",
+    longDesc: "Sortify is a Windows app on the Microsoft Store that automatically organizes large photo and video libraries using file metadata such as the date a photo was taken. You define fully customizable sorting rules and folder structures, and Sortify files everything away for you. Built in C# for anyone drowning in unsorted camera dumps.",
     link: 'https://apps.microsoft.com/detail/9ncrd760814m?hl=en-US&gl=US',
     tags: ['Windows', 'C#'],
   },
   {
     title: 'Programming Club Website',
-    image: '/images/projects/programming-club.png',
+    images: ['/images/projects/programming-club.png'],
     desc: 'The official website for the programming club at Newton North High School. Built with React and hosted on GitHub Pages.',
+    longDesc: 'The official website for the programming club I rebuilt and led at Newton North High School. It serves as the hub for meeting info, learning resources, and events for club members. Built with React and deployed on GitHub Pages, it was part of a broader effort to revitalize the club from the ground up.',
     link: 'https://nnhsprogramming.club',
     tags: ['React', 'School'],
   },
   {
     title: 'SAT Vocab Practice Website',
-    image: '/images/projects/sat-vocab.png',
+    images: ['/images/projects/sat-vocab.png'],
     desc: 'A very simple flash-card based SAT vocab website I built for myself. Made with Astro. ',
+    longDesc: 'A lightweight, flash-card based SAT vocabulary trainer I built for my own studying. It keeps the experience deliberately simple: flip through cards, learn words, repeat. Made with Astro for a fast, static, distraction-free site.',
     link: 'https://sat-vocab.alantao.com/',
     tags: ['Astro', 'SAT'],
   },
   {
     title: 'Trim Trello',
-    image: '/images/projects/trim-trello.png',
+    images: ['/images/projects/trim-trello.png'],
     desc: 'A Chrome extension that declutters Trello boards by hiding completed tasks and archived lists. Built with JavaScript.',
+    longDesc: 'Trim Trello is a Chrome extension that declutters busy Trello boards by hiding completed tasks and archived lists, letting you focus on what is still in progress. Built with vanilla JavaScript and published on the Chrome Web Store.',
     link: 'https://chromewebstore.google.com/detail/trim-trello/jfijoefmmlgalanmckbdedhakndgjcah?hl=en-US',
     tags: ['Chrome Extension', 'JavaScript'],
   },
   {
     title: 'Spotify Songs',
-    image: '/images/projects/spotify-songs.png',
+    images: ['/images/projects/spotify-songs.png'],
     desc: 'A data-science project using R to analyze trends across Spotify tracks (danceability, popularity, speechiness) from Kaggle datasets.',
+    longDesc: 'A data-science project exploring what makes songs popular. Using R and Kaggle datasets, I analyzed trends across thousands of Spotify tracks — looking at features like danceability, popularity, and speechiness — and visualized the relationships between them. Published as an interactive Quarto report.',
     link: 'https://alienjao.quarto.pub/spotify-songs/pages/',
     tags: ['R', 'Data Science'],
   },
   {
     title: 'Carbon Dioxide',
-    image: '/images/projects/carbon-dioxide.png',
+    images: ['/images/projects/carbon-dioxide.png'],
     desc: 'An R project analyzing trends in global carbon dioxide emissions using Kaggle datasets.',
+    longDesc: 'An R-based data-science project analyzing long-term trends in global carbon dioxide emissions. Using Kaggle datasets, I cleaned, explored, and visualized emissions data across countries and over time, presenting the findings as a published Quarto report.',
     link: 'https://alienjao.quarto.pub/carbon-dioxide/',
     tags: ['R', 'Data Science'],
   },
   {
     title: 'Namedle',
-    image: '/images/projects/namedle.png',
+    images: ['/images/projects/namedle.png'],
     desc: 'A fun twist on Wordle where players guess names instead of words. Built with C++.',
+    longDesc: 'Namedle is a fun twist on Wordle where players guess names instead of ordinary words. It is a console game written in C++, featuring the same satisfying guess-and-feedback loop as the original, with a twist that makes it trickier than it sounds.',
     link: 'https://github.com/alantao5056/Namedle',
     tags: ['C++', 'Console'],
   },
@@ -211,18 +220,52 @@ const projects = [
       </div>
       <p class="section-lede">I'm always tinkering with something new. Here are a few of my favorites.</p>
       <div class="proj-grid">
-        {projects.map((p) => (
-          <a href={p.link} target="_blank" rel="noopener noreferrer" class="proj-card">
-            <img src={p.image || '/images/placeholder.png'} alt={p.title} class="proj-img" />
-            <h3 class="proj-title">{p.title}</h3>
-            <p class="proj-desc">{p.desc}</p>
-            <div class="tags">
-              {p.tags.map((t) => <span class="tag">{t}</span>)}
+        {projects.map((p, i) => (
+          <button type="button" class="proj-card" data-project-index={i}>
+            <div class="proj-img-wrap">
+              <img src={p.images[0] || '/images/placeholder.png'} alt={p.title} class="proj-img" loading="lazy" />
+              {p.images.length > 1 && <span class="proj-img-count">{p.images.length} photos</span>}
             </div>
-          </a>
+            <div class="proj-body">
+              <h3 class="proj-title">{p.title}</h3>
+              <p class="proj-desc">{p.desc}</p>
+              <div class="tags">
+                {p.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
+            </div>
+          </button>
         ))}
       </div>
     </section>
+
+    <!-- ===================== PROJECT MODAL ===================== -->
+    <div id="project-modal" class="modal-overlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button>
+
+        <!-- Left: content -->
+        <div class="modal-content">
+          <span class="modal-eyebrow">Project</span>
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-desc" class="modal-desc"></p>
+          <div class="modal-pills" id="modal-tags"></div>
+          <a id="modal-link" class="visit-badge" href="#" target="_blank" rel="noopener noreferrer">
+            <span id="modal-link-label"></span>
+            <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+
+        <!-- Right: image carousel -->
+        <div class="modal-media">
+          <div class="modal-carousel">
+            <img id="modal-img" class="modal-img" src="" alt="" />
+            <button type="button" class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous image">‹</button>
+            <button type="button" class="carousel-btn carousel-next" id="carousel-next" aria-label="Next image">›</button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ===================== 03 ACHIEVEMENTS ===================== -->
     <section id="achievements" class="section">
@@ -267,7 +310,148 @@ const projects = [
       </div>
     </section>
   </div>
-</PortfolioLayout>
+</Layout>
+
+<script define:vars={{ projects }}>
+  // ---------- Project modal ----------
+  (function () {
+    const cards = document.querySelectorAll('.proj-card');
+    const overlay = document.getElementById('project-modal');
+    if (!overlay) return;
+    const closeBtn = document.getElementById('modal-close');
+    const imgEl = document.getElementById('modal-img');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsEl = document.getElementById('carousel-dots');
+    const titleEl = document.getElementById('modal-title');
+    const descEl = document.getElementById('modal-desc');
+    const tagsEl = document.getElementById('modal-tags');
+    const linkEl = document.getElementById('modal-link');
+
+    function badgeLabel(url) {
+      try {
+        const host = new URL(url).hostname.replace(/^www\./, '');
+        if (host.includes('chromewebstore.google.com')) return 'View on Chrome Web Store';
+        if (host.includes('github.com')) return 'View on GitHub';
+        if (host.includes('quarto.pub')) return 'View Report';
+        return 'Visit Site';
+      } catch {
+        return 'Visit Site';
+      }
+    }
+
+    function isMicrosoftStore(url) {
+      try {
+        return new URL(url).hostname.includes('apps.microsoft.com');
+      } catch {
+        return false;
+      }
+    }
+
+    function isChromeWebStore(url) {
+      try {
+        return new URL(url).hostname.includes('chromewebstore.google.com');
+      } catch {
+        return false;
+      }
+    }
+
+    function renderBadge(url) {
+      if (isMicrosoftStore(url)) {
+        // Official Microsoft Store badge
+        linkEl.className = 'store-badge';
+        linkEl.href = url.split('?')[0] + '?referrer=appbadge&mode=full';
+        linkEl.innerHTML =
+          '<img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" alt="Get it from Microsoft" />';
+      } else if (isChromeWebStore(url)) {
+        // Official Chrome Web Store badge
+        linkEl.className = 'store-badge chrome-badge';
+        linkEl.href = url;
+        linkEl.innerHTML =
+          '<img src="https://developer.chrome.com/static/docs/webstore/branding/image/iNEddTyWiMfLSwFD6qGq.png" alt="Available in the Chrome Web Store" />';
+      } else {
+        linkEl.className = 'visit-badge';
+        linkEl.href = url;
+        linkEl.innerHTML =
+          '<span id="modal-link-label"></span><span class="visit-arrow">↗</span>';
+        linkEl.querySelector('#modal-link-label').textContent = badgeLabel(url);
+      }
+    }
+
+    let current = null;
+    let lastFocused = null;
+
+    function renderImage() {
+      const { images, idx } = current;
+      imgEl.src = images[idx];
+      imgEl.alt = titleEl.textContent;
+      const multi = images.length > 1;
+      prevBtn.hidden = !multi;
+      nextBtn.hidden = !multi;
+      dotsEl.hidden = !multi;
+      dotsEl.innerHTML = '';
+      if (!multi) return;
+      images.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (i === idx ? ' active' : '');
+        dot.setAttribute('aria-label', `Image ${i + 1}`);
+        dot.addEventListener('click', () => { current.idx = i; renderImage(); });
+        dotsEl.appendChild(dot);
+      });
+    }
+
+    function openModal(p, triggerEl) {
+      lastFocused = triggerEl;
+      current = { images: p.images, idx: 0 };
+      titleEl.textContent = p.title;
+      descEl.textContent = p.longDesc;
+      tagsEl.innerHTML = '';
+      p.tags.forEach((t) => {
+        const span = document.createElement('span');
+        span.className = 'modal-pill';
+        span.textContent = t;
+        tagsEl.appendChild(span);
+      });
+      renderBadge(p.link);
+      renderImage();
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+      current = null;
+      if (lastFocused) lastFocused.focus();
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const idx = Number(card.dataset.projectIndex);
+        openModal(projects[idx], card);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    prevBtn.addEventListener('click', () => {
+      current.idx = (current.idx - 1 + current.images.length) % current.images.length;
+      renderImage();
+    });
+    nextBtn.addEventListener('click', () => {
+      current.idx = (current.idx + 1) % current.images.length;
+      renderImage();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (overlay.hidden) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft' && !prevBtn.hidden) prevBtn.click();
+      if (e.key === 'ArrowRight' && !nextBtn.hidden) nextBtn.click();
+    });
+  })();
+</script>
 
 <script define:vars={{ carouselWords }}>
   // ---------- Word carousel (typewriter) ----------
@@ -820,24 +1004,62 @@ const projects = [
   .proj-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
+    gap: 20px;
   }
   .proj-card {
-    text-decoration: none;
+    text-align: left;
+    font: inherit;
     color: inherit;
+    cursor: pointer;
     background: #141418;
     border: 1px solid #26262e;
     border-radius: 16px;
-    padding: 24px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  }
+  .proj-card:hover {
+    transform: translateY(-6px);
+    border-color: #3b6ef0;
+    box-shadow: 0 18px 40px -14px rgba(59, 110, 240, 0.4);
+  }
+  .proj-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0d0d10;
+  }
+  .proj-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .proj-card:hover .proj-img {
+    transform: scale(1.06);
+  }
+  .proj-img-count {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #f4f4f6;
+    background: rgba(10, 10, 12, 0.72);
+    padding: 4px 9px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+  .proj-body {
+    padding: 22px 22px 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    min-height: 170px;
-    transition: transform 0.22s ease, border-color 0.22s ease;
-  }
-  .proj-card:hover {
-    transform: translateY(-4px);
-    border-color: #3b6ef0;
+    flex: 1;
   }
   .proj-title {
     margin: 0;
@@ -852,6 +1074,10 @@ const projects = [
     font-size: 14px;
     line-height: 1.55;
     color: #9a9aa3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .tags {
     display: flex;
@@ -865,6 +1091,256 @@ const projects = [
     border: 1px solid #2e2e36;
     padding: 4px 9px;
     border-radius: 999px;
+  }
+
+  /* Project modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 8, 10, 0.78);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 100;
+  }
+  .modal-overlay[hidden] {
+    display: none;
+  }
+  .modal {
+    background: #141418;
+    border: 1px solid #26262e;
+    border-radius: 22px;
+    max-width: 80%;
+    width: 100%;
+    max-height: 86vh;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    animation: modalIn 0.22s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid #2e2e36;
+    background: rgba(10, 10, 12, 0.7);
+    color: #f4f4f6;
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .modal-close:hover {
+    border-color: #3b6ef0;
+    background: rgba(59, 110, 240, 0.2);
+  }
+
+  /* Left column: content */
+  .modal-content {
+    flex: 1 1 58%;
+    min-width: 0;
+    padding: 52px 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+  }
+  .modal-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #3b6ef0;
+  }
+  .modal-title {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #f4f4f6;
+  }
+  .modal-desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #b6b6bf;
+  }
+  .modal-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  /* Pills are created dynamically in JS, so they don't receive Astro's
+     scope hash — style them globally so the rule still applies. */
+  :global(.modal-pill) {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3b6ef0;
+    background: rgba(59, 110, 240, 0.12);
+    padding: 6px 13px;
+    border-radius: 999px;
+  }
+  /* Official Microsoft Store badge (rendered dynamically). */
+  .store-badge {
+    align-self: flex-start;
+    margin-top: 8px;
+    display: inline-block;
+    line-height: 0;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  .store-badge:hover {
+    transform: translateY(-2px);
+  }
+  :global(.store-badge img) {
+    display: block;
+    width: 200px;
+    height: auto;
+  }
+  :global(.chrome-badge img) {
+    width: 206px;
+  }
+  .visit-badge {
+    align-self: flex-start;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: #3b6ef0;
+    padding: 12px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .visit-badge:hover {
+    background: #2f59c9;
+    transform: translateY(-2px);
+  }
+  /* Arrow is rendered dynamically inside the badge — style globally. */
+  :global(.visit-arrow) {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  .visit-badge:hover :global(.visit-arrow) {
+    transform: translate(2px, -2px);
+  }
+
+  /* Right column: image carousel */
+  .modal-media {
+    flex: 0 0 42%;
+    position: relative;
+    background: #0d0d10;
+    border-left: 1px solid #26262e;
+  }
+  .modal-carousel {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(10, 10, 12, 0.65);
+    color: #f4f4f6;
+    font-size: 21px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
+  }
+  .carousel-btn[hidden] {
+    display: none;
+  }
+  .carousel-btn:hover {
+    background: rgba(59, 110, 240, 0.6);
+  }
+  .carousel-prev {
+    left: 12px;
+  }
+  .carousel-next {
+    right: 12px;
+  }
+  .carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+  }
+  .carousel-dots[hidden] {
+    display: none;
+  }
+  /* Dots are created dynamically in JS — style globally (see pills note). */
+  :global(.carousel-dot) {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  :global(.carousel-dot.active) {
+    background: #3b6ef0;
+    transform: scale(1.3);
+  }
+
+  /* Modal — stack on narrow screens (image on top) */
+  @media (max-width: 760px) {
+    .modal {
+      flex-direction: column;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-media {
+      flex: none;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-left: none;
+      border-bottom: 1px solid #26262e;
+      order: -1;
+    }
+    .modal-content {
+      padding: 32px 28px 36px;
+      justify-content: flex-start;
+    }
   }
 
   /* Contact */
