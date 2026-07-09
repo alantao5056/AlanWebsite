@@ -77,23 +77,25 @@ const projects = [
     images: ['/images/projects/pantry-finder.png'],
     desc: 'A free, community-powered platform that helps people find food pantries near them. 14,000+ pantries across 4,400+ cities.',
     longDesc: 'PantryFinder is a free, community-powered platform that helps people quickly locate food pantries near them. It brings together over 14,000 pantries across 4,400+ cities into a single, fast, searchable map. Built with React on the front end and Firebase for data and hosting, it focuses on accessibility and reliability so that anyone can find help when they need it most.',
-    link: 'https://pantryfinder.org/',
-    tags: ['Web', 'Community', 'React', 'Firebase'],
+    links: ['https://pantryfinder.org/'],
+    tags: ['Web', 'Community', 'Nuxt', 'TypeScript', 'Firebase', 'Redis'],
   },
   {
     title: 'HEIC to JPG Batch Converter',
     images: ['/images/projects/heic-to-jpg.png'],
     desc: "A Windows app on the Microsoft Store for bulk converting Apple's HEIC images to JPG, making photos accessible across devices. 10k+ downloads.",
     longDesc: "A Windows desktop app, published on the Microsoft Store with over 10,000 downloads, that batch-converts Apple's HEIC photos into universally compatible JPGs. Drag in an entire folder and convert hundreds of images at once, so your photos open anywhere — not just on Apple devices. Built in C# with a clean, no-friction interface.",
-    link: 'https://apps.microsoft.com/detail/9pmm2c5ch29k?hl=en-US&gl=US',
-    tags: ['Windows', 'C#'],
+    links: [
+      'https://apps.microsoft.com/detail/9pmm2c5ch29k?hl=en-US&gl=US',
+      'https://heicbatchconverter.alantao.com'],
+    tags: ['Windows', '.NET 8', 'WinUI 3', 'C#'],
   },
   {
     title: "Sortify",
     images: ['/images/projects/sortify.jpg', '/images/projects/heic-to-jpg.png'],
     desc: "A Windows app on the Microsoft Store for organizing photos and videos based on metadata like date. Fully customizable sorting rules and folder structures.",
     longDesc: "Sortify is a Windows app on the Microsoft Store that automatically organizes large photo and video libraries using file metadata such as the date a photo was taken. You define fully customizable sorting rules and folder structures, and Sortify files everything away for you. Built in C# for anyone drowning in unsorted camera dumps.",
-    link: 'https://apps.microsoft.com/detail/9ncrd760814m?hl=en-US&gl=US',
+    links: ['https://apps.microsoft.com/detail/9ncrd760814m?hl=en-US&gl=US'],
     tags: ['Windows', 'C#'],
   },
   {
@@ -101,7 +103,7 @@ const projects = [
     images: ['/images/projects/programming-club.png'],
     desc: 'The official website for the programming club at Newton North High School. Built with React and hosted on GitHub Pages.',
     longDesc: 'The official website for the programming club I rebuilt and led at Newton North High School. It serves as the hub for meeting info, learning resources, and events for club members. Built with React and deployed on GitHub Pages, it was part of a broader effort to revitalize the club from the ground up.',
-    link: 'https://nnhsprogramming.club',
+    links: ['https://nnhsprogramming.club'],
     tags: ['React', 'School'],
   },
   {
@@ -109,7 +111,7 @@ const projects = [
     images: ['/images/projects/sat-vocab.png'],
     desc: 'A very simple flash-card based SAT vocab website I built for myself. Made with Astro. ',
     longDesc: 'A lightweight, flash-card based SAT vocabulary trainer I built for my own studying. It keeps the experience deliberately simple: flip through cards, learn words, repeat. Made with Astro for a fast, static, distraction-free site.',
-    link: 'https://sat-vocab.alantao.com/',
+    links: ['https://sat-vocab.alantao.com/'],
     tags: ['Astro', 'SAT'],
   },
   {
@@ -117,7 +119,7 @@ const projects = [
     images: ['/images/projects/trim-trello.png'],
     desc: 'A Chrome extension that declutters Trello boards by hiding completed tasks and archived lists. Built with JavaScript.',
     longDesc: 'Trim Trello is a Chrome extension that declutters busy Trello boards by hiding completed tasks and archived lists, letting you focus on what is still in progress. Built with vanilla JavaScript and published on the Chrome Web Store.',
-    link: 'https://chromewebstore.google.com/detail/trim-trello/jfijoefmmlgalanmckbdedhakndgjcah?hl=en-US',
+    links: ['https://chromewebstore.google.com/detail/trim-trello/jfijoefmmlgalanmckbdedhakndgjcah?hl=en-US'],
     tags: ['Chrome Extension', 'JavaScript'],
   },
   {
@@ -125,7 +127,7 @@ const projects = [
     images: ['/images/projects/spotify-songs.png'],
     desc: 'A data-science project using R to analyze trends across Spotify tracks (danceability, popularity, speechiness) from Kaggle datasets.',
     longDesc: 'A data-science project exploring what makes songs popular. Using R and Kaggle datasets, I analyzed trends across thousands of Spotify tracks — looking at features like danceability, popularity, and speechiness — and visualized the relationships between them. Published as an interactive Quarto report.',
-    link: 'https://alienjao.quarto.pub/spotify-songs/pages/',
+    links: ['https://alienjao.quarto.pub/spotify-songs/pages/'],
     tags: ['R', 'Data Science'],
   },
   {
@@ -133,7 +135,7 @@ const projects = [
     images: ['/images/projects/carbon-dioxide.png'],
     desc: 'An R project analyzing trends in global carbon dioxide emissions using Kaggle datasets.',
     longDesc: 'An R-based data-science project analyzing long-term trends in global carbon dioxide emissions. Using Kaggle datasets, I cleaned, explored, and visualized emissions data across countries and over time, presenting the findings as a published Quarto report.',
-    link: 'https://alienjao.quarto.pub/carbon-dioxide/',
+    links: ['https://alienjao.quarto.pub/carbon-dioxide/'],
     tags: ['R', 'Data Science'],
   },
   {
@@ -141,7 +143,7 @@ const projects = [
     images: ['/images/projects/namedle.png'],
     desc: 'A fun twist on Wordle where players guess names instead of words. Built with C++.',
     longDesc: 'Namedle is a fun twist on Wordle where players guess names instead of ordinary words. It is a console game written in C++, featuring the same satisfying guess-and-feedback loop as the original, with a twist that makes it trickier than it sounds.',
-    link: 'https://github.com/alantao5056/Namedle',
+    links: ['https://github.com/alantao5056/Namedle'],
     tags: ['C++', 'Console'],
   },
 ];
@@ -249,10 +251,7 @@ const projects = [
           <h3 id="modal-title" class="modal-title"></h3>
           <p id="modal-desc" class="modal-desc"></p>
           <div class="modal-pills" id="modal-tags"></div>
-          <a id="modal-link" class="visit-badge" href="#" target="_blank" rel="noopener noreferrer">
-            <span id="modal-link-label"></span>
-            <span class="visit-arrow">↗</span>
-          </a>
+          <div class="modal-links" id="modal-links"></div>
         </div>
 
         <!-- Right: image carousel -->
@@ -326,7 +325,7 @@ const projects = [
     const titleEl = document.getElementById('modal-title');
     const descEl = document.getElementById('modal-desc');
     const tagsEl = document.getElementById('modal-tags');
-    const linkEl = document.getElementById('modal-link');
+    const linksEl = document.getElementById('modal-links');
 
     function badgeLabel(url) {
       try {
@@ -356,26 +355,34 @@ const projects = [
       }
     }
 
-    function renderBadge(url) {
+    function createBadge(url) {
+      const el = document.createElement('a');
+      el.href = url;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
       if (isMicrosoftStore(url)) {
         // Official Microsoft Store badge
-        linkEl.className = 'store-badge';
-        linkEl.href = url.split('?')[0] + '?referrer=appbadge&mode=full';
-        linkEl.innerHTML =
+        el.className = 'store-badge';
+        el.href = url.split('?')[0] + '?referrer=appbadge&mode=full';
+        el.innerHTML =
           '<img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" alt="Get it from Microsoft" />';
       } else if (isChromeWebStore(url)) {
         // Official Chrome Web Store badge
-        linkEl.className = 'store-badge chrome-badge';
-        linkEl.href = url;
-        linkEl.innerHTML =
+        el.className = 'store-badge chrome-badge';
+        el.innerHTML =
           '<img src="https://developer.chrome.com/static/docs/webstore/branding/image/iNEddTyWiMfLSwFD6qGq.png" alt="Available in the Chrome Web Store" />';
       } else {
-        linkEl.className = 'visit-badge';
-        linkEl.href = url;
-        linkEl.innerHTML =
-          '<span id="modal-link-label"></span><span class="visit-arrow">↗</span>';
-        linkEl.querySelector('#modal-link-label').textContent = badgeLabel(url);
+        el.className = 'visit-badge';
+        el.innerHTML =
+          '<span class="visit-label"></span><span class="visit-arrow">↗</span>';
+        el.querySelector('.visit-label').textContent = badgeLabel(url);
       }
+      return el;
+    }
+
+    function renderBadges(links) {
+      linksEl.innerHTML = '';
+      (links || []).forEach((url) => linksEl.appendChild(createBadge(url)));
     }
 
     let current = null;
@@ -413,7 +420,7 @@ const projects = [
         span.textContent = t;
         tagsEl.appendChild(span);
       });
-      renderBadge(p.link);
+      renderBadges(p.links);
       renderImage();
       overlay.hidden = false;
       document.body.style.overflow = 'hidden';
@@ -1198,16 +1205,22 @@ const projects = [
     padding: 6px 13px;
     border-radius: 999px;
   }
-  /* Official Microsoft Store badge (rendered dynamically). */
-  .store-badge {
-    align-self: flex-start;
-    margin-top: 8px;
+  /* Container for one or more link badges (rendered dynamically). */
+  .modal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+  /* Badges are created dynamically in JS, so they don't receive Astro's
+     scope hash — style them globally so the rules still apply. */
+  :global(.store-badge) {
     display: inline-block;
     line-height: 0;
     border-radius: 8px;
     transition: transform 0.2s ease;
   }
-  .store-badge:hover {
+  :global(.store-badge:hover) {
     transform: translateY(-2px);
   }
   :global(.store-badge img) {
@@ -1218,9 +1231,7 @@ const projects = [
   :global(.chrome-badge img) {
     width: 206px;
   }
-  .visit-badge {
-    align-self: flex-start;
-    margin-top: 8px;
+  :global(.visit-badge) {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -1233,7 +1244,7 @@ const projects = [
     text-decoration: none;
     transition: background 0.2s ease, transform 0.2s ease;
   }
-  .visit-badge:hover {
+  :global(.visit-badge:hover) {
     background: #2f59c9;
     transform: translateY(-2px);
   }
@@ -1242,7 +1253,7 @@ const projects = [
     display: inline-block;
     transition: transform 0.2s ease;
   }
-  .visit-badge:hover :global(.visit-arrow) {
+  :global(.visit-badge:hover .visit-arrow) {
     transform: translate(2px, -2px);
   }
 
