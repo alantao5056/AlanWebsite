@@ -22,7 +22,7 @@ const sections = [
 ];
 
 const socials = [
-  { label: 'Email', href: 'mailto:taojianzzh@gmail.com' },
+  { label: 'Email', href: 'mailto:alantaolr@outlok.com' },
   { label: 'Github', href: 'https://github.com/alantao5056' },
   { label: 'Linkedin', href: 'https://www.linkedin.com/in/leran-tao-1929b8379/' },
   { label: 'Youtube', href: 'https://www.youtube.com/channel/UCzdtyvYuUM6EGKhtsbF_jhQ' },
@@ -74,7 +74,7 @@ const achievements = [
 const projects = [
   {
     title: 'PantryFinder',
-    images: ['/images/projects/pantry-finder.png'],
+    images: ['/images/projects/pantry-finder-1.png', '/images/projects/pantry-finder-2.png', '/images/projects/pantry-finder-3.png'],
     desc: 'A free, community-powered platform that helps people find food pantries near them. 14,000+ pantries across 4,400+ cities.',
     longDesc: 'PantryFinder is a free, community-powered platform that helps people quickly locate food pantries near them. It brings together over 14,000 pantries across 4,400+ cities into a single, fast, searchable map. Built with React on the front end and Firebase for data and hosting, it focuses on accessibility and reliability so that anyone can find help when they need it most.',
     links: ['https://pantryfinder.org/'],
@@ -108,7 +108,7 @@ const projects = [
   },
   {
     title: 'SAT Vocab Practice Website',
-    images: ['/images/projects/sat-vocab.png'],
+    images: ['/images/projects/sat-vocab-1.png', '/images/projects/sat-vocab-2.png', '/images/projects/sat-vocab-3.png'],
     desc: 'A very simple flash-card based SAT vocab website I built for myself. Made with Astro. ',
     longDesc: 'A lightweight, flash-card based SAT vocabulary trainer I built for my own studying. It keeps the experience deliberately simple: flip through cards, learn words, repeat. Made with Astro for a fast, static, distraction-free site.',
     links: ['https://sat-vocab.alantao.com/'],
@@ -822,14 +822,14 @@ const projects = [
     transition: color 0.2s ease, transform 0.2s ease;
   }
   .sec-link:hover {
-    padding-left: 14px;
+    padding-left: 8px;
   }
   .sec-link:hover .sec-title,
   .sec-link:hover .sec-arrow {
     color: #3b6ef0;
   }
   .sec-link:hover .sec-arrow {
-    transform: translateX(4px);
+    transform: translateX(2px);
   }
 
   /* Social links */
@@ -1001,8 +1001,9 @@ const projects = [
   .pill {
     font-size: 12px;
     font-weight: 600;
-    color: #3b6ef0;
-    background: rgba(59, 110, 240, 0.12);
+    color: #7fb89c;
+    background: rgba(86, 214, 154, 0.05);
+    border: 1px solid rgba(86, 214, 154, 0.16);
     padding: 5px 11px;
     border-radius: 999px;
   }
@@ -1028,9 +1029,9 @@ const projects = [
     transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
   }
   .proj-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
     border-color: #3b6ef0;
-    box-shadow: 0 18px 40px -14px rgba(59, 110, 240, 0.4);
+    box-shadow: 0 12px 28px -14px rgba(59, 110, 240, 0.28);
   }
   .proj-img-wrap {
     position: relative;
@@ -1047,7 +1048,7 @@ const projects = [
     transition: transform 0.4s ease;
   }
   .proj-card:hover .proj-img {
-    transform: scale(1.06);
+    transform: scale(1.03);
   }
   .proj-img-count {
     position: absolute;
@@ -1094,8 +1095,9 @@ const projects = [
   .tag {
     font-size: 11px;
     font-weight: 600;
-    color: #8a8a93;
-    border: 1px solid #2e2e36;
+    color: #7fb89c;
+    background: rgba(86, 214, 154, 0.05);
+    border: 1px solid rgba(86, 214, 154, 0.16);
     padding: 4px 9px;
     border-radius: 999px;
   }
@@ -1119,7 +1121,7 @@ const projects = [
     background: #141418;
     border: 1px solid #26262e;
     border-radius: 22px;
-    max-width: 80%;
+    max-width: 70%;
     width: 100%;
     max-height: 86vh;
     position: relative;
@@ -1158,7 +1160,7 @@ const projects = [
 
   /* Left column: content */
   .modal-content {
-    flex: 1 1 58%;
+    flex: 1 1 50%;
     min-width: 0;
     padding: 52px 52px 48px;
     display: flex;
@@ -1200,8 +1202,9 @@ const projects = [
   :global(.modal-pill) {
     font-size: 12px;
     font-weight: 600;
-    color: #3b6ef0;
-    background: rgba(59, 110, 240, 0.12);
+    color: #7fb89c;
+    background: rgba(86, 214, 154, 0.05);
+    border: 1px solid rgba(86, 214, 154, 0.16);
     padding: 6px 13px;
     border-radius: 999px;
   }
@@ -1259,7 +1262,7 @@ const projects = [
 
   /* Right column: image carousel */
   .modal-media {
-    flex: 0 0 42%;
+    flex: 0 0 50%;
     position: relative;
     background: #0d0d10;
     border-left: 1px solid #26262e;
